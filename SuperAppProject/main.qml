@@ -18,8 +18,8 @@ Window {
     flags: Qt.Widget
 
     property bool easyMode: false
-    property real stepLength: Math.max(_noButton.width, _noButton.height)
-    property int moveDuration: 120
+    property real stepLength: Math.max(_noButton.width, _noButton.height) * 2
+    property int moveDuration: 80
 
     function randomMove(){
         var angle = Math.random() * Math.PI * 2
@@ -71,7 +71,7 @@ Window {
 
     Timer {
         id: _closeTimer
-        interval: 2000
+        interval: 3000
         onTriggered: _mainWindow.close()
     }
 
@@ -103,7 +103,8 @@ Window {
                 properties: "width"
                 to: _mainWindow.width * 4
                 duration: _closeTimer.interval * 0.6
-                easing.type: easing.InOutBounce
+                // BUG: have warning here
+                //easing.type: easing.InOutBounce
             }
 
             SequentialAnimation {
@@ -127,6 +128,7 @@ Window {
         }
         onClicked: {
             _question.text = "Победаб подеда, поееееа!"
+            _moveTimer.stop()
             _winAnimation.start()
             _closeTimer.start()
         }

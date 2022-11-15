@@ -56,11 +56,3 @@ Rectangle {
     }
 
 }
-
-
-
-/*##^##
-Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.75;height:480;width:640}
-}
-##^##*/
